@@ -1,0 +1,54 @@
+IMPLICIT JOIN
+mysql> select * from movie_summary,favorite_movies where movie_summary.movie_id=favorite_movies.movie_id;
++----------+----------------+-------------------+--------------+------------------+------------+----------+-----------------+--------+
+| movie_id | main_char      | played_by         | money_earned | movie_name       | genre      | movie_id | year_of_release | rating |
++----------+----------------+-------------------+--------------+------------------+------------+----------+-----------------+--------+
+|    10012 | Mr. Simon      | Leonardo DiCaprio |       300000 | Shutter Island   | psychology |    10012 |            2010 |    9.8 |
+|    10012 | Inspector      | Mark Rufflo       |       300000 | Shutter Island   | psychology |    10012 |            2010 |    9.8 |
+|    11182 | Engineer       | Ben Affleck       |       200000 | Paycheck         | fantasy    |    11182 |            2004 |    7.5 |
+|    11182 | Botonist       | Rosie Williams    |       100000 | Paycheck         | fantasy    |    11182 |            2004 |    7.5 |
+|    12982 | Tony Stark     | RDJ               |       900000 | iron man         | comic      |    12982 |            2008 |    9.5 |
+|    12982 | Pepper Potts   | Gwyneth Paltrow   |       600000 | iron man         | comic      |    12982 |            2008 |    9.5 |
+|    13214 | Iron man       | RDJ               |       999999 | Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+|    13214 | Steve Rogers   | Chris Evans       |       440000 | Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+|    13214 | Black Widow    | Scarlet Johanson  |       987000 | Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+|    13214 | Hulk           | Mark Rufflo       |       666000 | Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+|    13214 | Thor           | Chris Hemsworth   |       787000 | Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+|    13214 | Hawkeye        | Clint Barton      |       587000 | Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+|    26914 | Steve Rogers   | Chris Evans       |       500000 | Captain America  | comic      |    26914 |            2012 |    8.6 |
+|    26914 | Agent Carter   | Hayley Atwell     |       550000 | Captain America  | comic      |    26914 |            2012 |    8.6 |
+|    99012 | Driver         | Christian Bale    |       990000 | Machinist        | psychology |    99012 |            2006 |    8.8 |
+|    99782 | Saintess       | Gemma Arterton    |       870000 | Prince of Persia | fantasy    |    99782 |            2010 |    6.8 |
+|    99782 | Persian Prince | Jake Gyllenhal    |       870000 | Prince of Persia | fantasy    |    99782 |            2010 |    6.8 |
++----------+----------------+-------------------+--------------+------------------+------------+----------+-----------------+--------+
+17 rows in set (0.00 sec)
+*********************************************************************************************************************************************************************************************
+INNER JOIN
+mysql> select movie_name,played_by,rating from favorite_movies INNER JOIN movie_summary on favorite_movies.movie_id=movie_summary.movie_id where money_earned>500000;
++------------------+------------------+--------+
+| movie_name       | played_by        | rating |
++------------------+------------------+--------+
+| iron man         | RDJ              |    9.5 |
+| iron man         | Gwyneth Paltrow  |    9.5 |
+| Avengers Endgame | RDJ              |    9.7 |
+| Avengers Endgame | Scarlet Johanson |    9.7 |
+| Avengers Endgame | Mark Rufflo      |    9.7 |
+| Avengers Endgame | Chris Hemsworth  |    9.7 |
+| Avengers Endgame | Clint Barton     |    9.7 |
+| Captain America  | Hayley Atwell    |    8.6 |
+| Machinist        | Christian Bale   |    8.8 |
+| Prince of Persia | Gemma Arterton   |    6.8 |
+| Prince of Persia | Jake Gyllenhal   |    6.8 |
++------------------+------------------+--------+
+11 rows in set (0.00 sec)
+*********************************************************************************************************************************************************************************************
+OUTER JOIN
+mysql> select movie_name,played_by,rating from favorite_movies LEFT OUTER JOIN movie_summary on favorite_movies.movie_id=movie_summary.movie_id where genre='fantasy';
++------------------+----------------+--------+
+| movie_name       | played_by      | rating |
++------------------+----------------+--------+
+| Paycheck         | Ben Affleck    |    7.5 |
+| Paycheck         | Rosie Williams |    7.5 |
+| Prince of Persia | Gemma Arterton |    6.8 |
+| Prince of Persia | Jake Gyllenhal |    6.8 |
++------------------+----------------+--------+

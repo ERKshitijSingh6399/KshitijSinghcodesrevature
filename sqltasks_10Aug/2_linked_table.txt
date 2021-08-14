@@ -1,0 +1,102 @@
+mysql> show tables;
++------------------+
+| Tables_in_tempdb |
++------------------+
+| favorite_movies  |
++------------------+
+1 row in set (0.37 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> create table movie_summary(movie_id int,main_char varchar(20),played_by varchar(20), money_earned int, Foreign key(movie_id) references favorite_movies(movie_id));
+Query OK, 0 rows affected (1.86 sec)
+
+mysql> desc movie_summary;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| movie_id     | int         | YES  | MUL | NULL    |       |
+| main_char    | varchar(20) | YES  |     | NULL    |       |
+| played_by    | varchar(20) | YES  |     | NULL    |       |
+| money_earned | int         | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+4 rows in set (0.10 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(10012,'Mr. Simon','Leonardo DiCaprio',300000);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(10012,'Inspector','Mark Rufflo',300000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(11182,'Engineer','Ben Affleck',200000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(11182,'Botonist','Rosie Williams',100000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(12982,'Tony Stark','RDJ',900000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(12982,'Pepper Potts','Gwyneth Paltrow',600000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(26914,'Steve Rogers','Chris Evans',500000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(26914,'Agent Carter','Hayley Atwell',550000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(99012,'Driver','Christian Bale',990000);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(99782,'Saintess','Gemma Arterton',870000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(99782,'Persian Prince','Jake Gyllenhal',870000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(13214,'Iron man','RDJ',999999);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(13214,'Steve Rogers','Chris Evans',440000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(13214,'Black Widow','Scarlet Johanson',987000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(13214,'Hulk','Mark Rufflo',666000);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(13214,'Thor','Chris Hemsworth',787000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into movie_summary(movie_id,main_char,played_by,money_earned) values(13214,'Hawkeye','Clint Barton',587000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from movie_summary;
++----------+----------------+-------------------+--------------+
+| movie_id | main_char      | played_by         | money_earned |
++----------+----------------+-------------------+--------------+
+|    10012 | Mr. Simon      | Leonardo DiCaprio |       300000 |
+|    10012 | Inspector      | Mark Rufflo       |       300000 |
+|    11182 | Engineer       | Ben Affleck       |       200000 |
+|    11182 | Botonist       | Rosie Williams    |       100000 |
+|    12982 | Tony Stark     | RDJ               |       900000 |
+|    12982 | Pepper Potts   | Gwyneth Paltrow   |       600000 |
+|    26914 | Steve Rogers   | Chris Evans       |       500000 |
+|    26914 | Agent Carter   | Hayley Atwell     |       550000 |
+|    99012 | Driver         | Christian Bale    |       990000 |
+|    99782 | Saintess       | Gemma Arterton    |       870000 |
+|    99782 | Persian Prince | Jake Gyllenhal    |       870000 |
+|    13214 | Iron man       | RDJ               |       999999 |
+|    13214 | Steve Rogers   | Chris Evans       |       440000 |
+|    13214 | Black Widow    | Scarlet Johanson  |       987000 |
+|    13214 | Hulk           | Mark Rufflo       |       666000 |
+|    13214 | Thor           | Chris Hemsworth   |       787000 |
+|    13214 | Hawkeye        | Clint Barton      |       587000 |
++----------+----------------+-------------------+--------------+
+17 rows in set (0.00 sec)

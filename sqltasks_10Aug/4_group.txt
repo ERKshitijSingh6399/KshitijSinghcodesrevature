@@ -1,0 +1,53 @@
+GROUP BY
+mysql> select * from movie_summary;
++----------+----------------+-------------------+--------------+
+| movie_id | main_char      | played_by         | money_earned |
++----------+----------------+-------------------+--------------+
+|    10012 | Mr. Simon      | Leonardo DiCaprio |       300000 |
+|    10012 | Inspector      | Mark Rufflo       |       300000 |
+|    11182 | Engineer       | Ben Affleck       |       200000 |
+|    11182 | Botonist       | Rosie Williams    |       100000 |
+|    12982 | Tony Stark     | RDJ               |       900000 |
+|    12982 | Pepper Potts   | Gwyneth Paltrow   |       600000 |
+|    26914 | Steve Rogers   | Chris Evans       |       500000 |
+|    26914 | Agent Carter   | Hayley Atwell     |       550000 |
+|    99012 | Driver         | Christian Bale    |       990000 |
+|    99782 | Saintess       | Gemma Arterton    |       870000 |
+|    99782 | Persian Prince | Jake Gyllenhal    |       870000 |
+|    13214 | Iron man       | RDJ               |       999999 |
+|    13214 | Steve Rogers   | Chris Evans       |       440000 |
+|    13214 | Black Widow    | Scarlet Johanson  |       987000 |
+|    13214 | Hulk           | Mark Rufflo       |       666000 |
+|    13214 | Thor           | Chris Hemsworth   |       787000 |
+|    13214 | Hawkeye        | Clint Barton      |       587000 |
++----------+----------------+-------------------+--------------+
+17 rows in set (0.00 sec)
+
+mysql> select movie_id,max(money_earned) from movie_summary group by movie_id;
++----------+-------------------+
+| movie_id | max(money_earned) |
++----------+-------------------+
+|    10012 |            300000 |
+|    11182 |            200000 |
+|    12982 |            900000 |
+|    13214 |            999999 |
+|    26914 |            550000 |
+|    99012 |            990000 |
+|    99782 |            870000 |
++----------+-------------------+
+7 rows in set (0.14 sec)
+
+
+*********************************************************************************************************************************************************************************************
+HAVING
+
+mysql> select movie_id,max(money_earned) from movie_summary group by movie_id having max(money_earned)>600000;
++----------+-------------------+
+| movie_id | max(money_earned) |
++----------+-------------------+
+|    12982 |            900000 |
+|    13214 |            999999 |
+|    99012 |            990000 |
+|    99782 |            870000 |
++----------+-------------------+
+4 rows in set (0.14 sec)

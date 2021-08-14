@@ -1,0 +1,50 @@
+mysql> show schemas;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| tempdb             |
++--------------------+
+5 rows in set (0.10 sec)
+
+mysql> use tempdb;
+Database changed
+mysql> alter table favorite_movies modify rating decimal(2,1);
+Query OK, 0 rows affected (2.58 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc favorite_movies;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| movie_name      | varchar(20)  | YES  |     | NULL    |       |
+| genre           | varchar(10)  | YES  |     | NULL    |       |
+| movie_id        | int          | NO   | PRI | NULL    |       |
+| year_of_release | int          | YES  |     | NULL    |       |
+| rating          | decimal(2,1) | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+5 rows in set (0.11 sec)
+
+mysql> insert into favorite_movies(movie_name,genre,movie_id,year_of_release,rating) values('iron man','comic',12982,2008,9.5);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into favorite_movies(movie_name,genre,movie_id,year_of_release,rating) values('Avengers Endgame','comic',13214,2019,9.7);
+Query OK, 1 row affected (0.24 sec)
+
+mysql> insert into favorite_movies(movie_name,genre,movie_id,year_of_release,rating) values('Avengers Infinity war','comic',19914,2020,9.6);
+ERROR 1406 (22001): Data too long for column 'movie_name' at row 1
+mysql> insert into favorite_movies(movie_name,genre,movie_id,year_of_release,rating) values('Captain America','comic',26914,2012,8.6);
+Query OK, 1 row affected (0.20 sec)
+
+mysql> select * from favorite_movies;
++------------------+-------+----------+-----------------+--------+
+| movie_name       | genre | movie_id | year_of_release | rating |
++------------------+-------+----------+-----------------+--------+
+| iron man         | comic |    12982 |            2008 |    9.5 |
+| Avengers Endgame | comic |    13214 |            2019 |    9.7 |
+| Captain America  | comic |    26914 |            2012 |    8.6 |
++------------------+-------+----------+-----------------+--------+
+3 rows in set (0.00 sec)
