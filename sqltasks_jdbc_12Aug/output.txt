@@ -1,0 +1,71 @@
+mysql> use tempdb;
+Database changed
+mysql> select * from favorite_movies;
++------------------+------------+----------+-----------------+--------+
+| movie_name       | genre      | movie_id | year_of_release | rating |
++------------------+------------+----------+-----------------+--------+
+| Shutter Island   | psychology |    10012 |            2010 |    9.8 |
+| Paycheck         | fantasy    |    11182 |            2004 |    7.5 |
+| iron man         | comic      |    12982 |            2008 |    9.5 |
+| Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+| Captain America  | comic      |    26914 |            2012 |    8.6 |
+| Machinist        | psychology |    99012 |            2006 |    8.8 |
+| Prince of Persia | fantasy    |    99782 |            2010 |    6.8 |
++------------------+------------+----------+-----------------+--------+
+7 rows in set (0.14 sec)
+
+mysql> describe favorite_movies;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| movie_name      | varchar(20)  | YES  |     | NULL    |       |
+| genre           | varchar(10)  | YES  |     | NULL    |       |
+| movie_id        | int          | NO   | PRI | NULL    |       |
+| year_of_release | int          | YES  |     | NULL    |       |
+| rating          | decimal(2,1) | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+5 rows in set (0.88 sec)
+
+mysql> select * from favorite_movies;
++------------------+------------+----------+-----------------+--------+
+| movie_name       | genre      | movie_id | year_of_release | rating |
++------------------+------------+----------+-----------------+--------+
+| Shutter Island   | psychology |    10012 |            2010 |    9.8 |
+| Paycheck         | fantasy    |    11182 |            2004 |    7.5 |
+| iron man         | comic      |    12982 |            2008 |    9.5 |
+| Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+| Captain America  | comic      |    26914 |            2012 |    8.6 |
+| Machinist        | psychology |    99012 |            2006 |    8.8 |
+| Prince of Persia | fantasy    |    99782 |            2010 |    6.8 |
++------------------+------------+----------+-----------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from favorite_movies;
++------------------+------------+----------+-----------------+--------+
+| movie_name       | genre      | movie_id | year_of_release | rating |
++------------------+------------+----------+-----------------+--------+
+| Shutter Island   | psychology |    10012 |            2010 |    9.8 |
+| Paycheck         | fantasy    |    11182 |            2004 |    7.5 |
+| Rush Hour        | Comedy     |    12345 |            2000 |    7.0 |
+| iron man         | comic      |    12982 |            2008 |    9.5 |
+| Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+| Captain America  | comic      |    26914 |            2012 |    8.6 |
+| Machinist        | psychology |    99012 |            2006 |    8.8 |
+| Prince of Persia | fantasy    |    99782 |            2010 |    6.8 |
++------------------+------------+----------+-----------------+--------+
+8 rows in set (0.02 sec)
+
+mysql> select * from favorite_movies;
++------------------+------------+----------+-----------------+--------+
+| movie_name       | genre      | movie_id | year_of_release | rating |
++------------------+------------+----------+-----------------+--------+
+| Shutter Island   | psychology |    10012 |            2010 |    9.8 |
+| Paycheck         | fantasy    |    11182 |            2004 |    7.5 |
+| Rush Hour        | action     |    12345 |            2000 |    7.0 |
+| iron man         | comic      |    12982 |            2008 |    9.5 |
+| Avengers Endgame | comic      |    13214 |            2019 |    9.7 |
+| Captain America  | comic      |    26914 |            2012 |    8.6 |
+| Machinist        | psychology |    99012 |            2006 |    8.8 |
+| Prince of Persia | fantasy    |    99782 |            2010 |    6.8 |
++------------------+------------+----------+-----------------+--------+
+8 rows in set (0.00 sec)
