@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signup page</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1 class="style1" style="margin-right:91%">Sign Up</h1>
+        <form method="post" action="login.html">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required title="First Name is required.">
+            <br><br>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required title="Last Name is required.">
+            <br><br>
+            Email
+            <input type="text" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.9.-]+\.[a-z]{2,}$">
+            <br><br>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+            <br><br>
+
+            <label for="teams">Select Team You Support</label>
+            <select id="teams" name="teams">
+                <option>[-- Select a Team --]</option>
+                <option>Mumbai Indians</option>
+                <option selected>Chennai Super Kings</option>
+                <option>Royal Challengers Bengaluru</option>
+                <option>Delhi Daredevils</option>
+            </select>
+            <br><br>
+
+            <label for="gender">Gender</label>
+            <input type="radio" name="gender" value="M" id="male"><label for="male">Male</label>
+            <input type="radio" name="gender" value="F" id="female" checked><label for="female">Female</label>
+            <br><br>
+
+            <input type="submit" class="style1" value="Save Data">
+        </form>
+    </body>
+</html>
